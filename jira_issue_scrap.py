@@ -90,7 +90,7 @@ for team in range(num_of_teams):
 
             # 담당자
             assignee_path = '//*[@id="assignee-val"]/span'
-            assignee = WebDriverWait(driver, 1000, ignored_exceptions=ignored_exceptions).until(expected_conditions.presence_of_element_located((By.XPATH, assignee_path))).text
+            assignee = WebDriverWait(driver, 5, ignored_exceptions=ignored_exceptions).until(expected_conditions.presence_of_element_located((By.XPATH, assignee_path))).text
             if assignee:
                 jira_report[assignee][3] += 1
             else:   
@@ -100,12 +100,12 @@ for team in range(num_of_teams):
 
             # 진행 중, 할 일, 완료 체크
             status_path = '//*[@id="status-val"]/span'
-            status = WebDriverWait(driver, 1000, ignored_exceptions=ignored_exceptions).until(expected_conditions.presence_of_element_located((By.XPATH, status_path))).text
+            status = WebDriverWait(driver, 5, ignored_exceptions=ignored_exceptions).until(expected_conditions.presence_of_element_located((By.XPATH, status_path))).text
             jira_report[assignee][issue_idx[status]] += 1
 
             # 서브태스크 여부 체크 
             issue_path = '//*[@id="type-val"]'
-            issue_type = WebDriverWait(driver, 1000, ignored_exceptions=ignored_exceptions).until(expected_conditions.presence_of_element_located((By.XPATH, issue_path))).text
+            issue_type = WebDriverWait(driver, 5, ignored_exceptions=ignored_exceptions).until(expected_conditions.presence_of_element_located((By.XPATH, issue_path))).text
             if issue_type=='부작업':
                 jira_report[assignee][5] += 1
 
