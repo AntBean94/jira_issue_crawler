@@ -1,4 +1,4 @@
-# Jira Issue Crawler
+# Jira Issue Scrapper
 
 [TOC]
 
